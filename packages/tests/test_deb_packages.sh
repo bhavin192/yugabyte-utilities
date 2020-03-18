@@ -6,7 +6,7 @@ script_dirname="$(dirname "${script_name}")"
 
 source "${script_dirname}/utils.sh"
 
-packagedir="build/apt"
+packagedir="$(pwd)/build/apt"
 test_log_file="${script_name}.log"
 
 # remove uninstalls given package by adding given extra_args to 'apt
@@ -56,7 +56,7 @@ install(){
     exit 1
   fi
   info "install: installing '${package}: ${package_name}'."
-  sudo dpkg -i "${packagedir}/${package_name}"  >> "${test_log_file}"
+  sudo apt install "${packagedir}/${package_name}" -y >> "${test_log_file}"
   info "install: installed '${package}: ${package_name}'."
 }
 

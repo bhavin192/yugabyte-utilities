@@ -6,7 +6,7 @@ script_dirname="$(dirname "${script_name}")"
 
 source "${script_dirname}/utils.sh"
 
-packagedir="build/yum/el7-x86_64"
+packagedir="$(pwd)/build/yum/el7-x86_64"
 test_log_file="${script_name}.log"
 
 # remove uninstalls given package
