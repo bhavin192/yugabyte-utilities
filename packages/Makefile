@@ -50,6 +50,7 @@ rpm: prepare_server
 	    --config-files "/etc/yugabytedb/yugabytedb.conf" \
 	    --depends "python" \
 	    --depends "procps-ng" \
+	    --depends "java = 1:1.8.0" \
 	    "build/server-$(YB_VERSION)/=/opt/yugabytedb" \
 	    "server/yugabytedb.conf=/etc/yugabytedb/" \
 	    "server/yugabyted.service=/lib/systemd/system/"
@@ -106,6 +107,7 @@ deb: prepare_server
 	    --config-files "/etc/yugabytedb/yugabytedb.conf" \
 	    --depends "python" \
 	    --depends "procps" \
+	    --deb-recommends "default-jre" \
 	    "build/server-$(YB_VERSION)/=/opt/yugabytedb" \
 	    "server/yugabytedb.conf=/etc/yugabytedb/"
 
