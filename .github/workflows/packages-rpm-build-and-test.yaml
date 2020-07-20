@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - master
+    - package-test
     paths:
     - "packages/**"
     - ".github/workflows/packages-*.yaml"
