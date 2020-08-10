@@ -5,7 +5,7 @@ file_owner_string="${yugabyte_user} ${yugabyte_user}"
 logdir="/var/log/yugabytedb"
 datadir="/var/lib/yugabytedb"
 configdir="/etc/yugabytedb"
-ui_endpoint="http://localhost:7200"
+ui_endpoint="http://localhost:7000"
 
 Red="\e[31m"
 Gre="\e[32m"
@@ -140,8 +140,8 @@ check_ui() {
     pass "check_ui: UI endpoint '${ui_endpoint}' returned: '${response}'."
   else
     fail "check_ui: UI endpoint '${ui_endpoint}' returned: '${response}', expected: '200'."
-    info "check_ui: contents of the yugaware.err file:"
-    cat /var/log/yugabytedb/yugaware.err
+    # info "check_ui: contents of the yugaware.err file:"
+    # cat /var/log/yugabytedb/yugaware.err
   fi
   if [[ -f "${curl_output_file}" ]]; then
     info "check_ui: contents of the response body:"
